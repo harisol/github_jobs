@@ -1,0 +1,49 @@
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.sidebar {
+  min-height: calc(100vh - 40px);
+}
+
+.sidebar .nav-link {
+  color: #000;
+}
+
+.sidebar .nav-link.active {
+  color: rgb(50, 169, 205);
+  font-weight: bold;
+}
+
+a {
+  color: #146c43;
+  text-decoration: none;
+}
+
+.job-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-title {
+  color: #0b5ed7;
+}
+
+.job-company, .job-post-time {
+  color: grey;
+}
+
+.job-type {
+  color: rgb(11, 167, 32);
+}
+
+.job-title, .job-type {
+  font-weight: bold;
+}
+
+.job-title, .job-location {
+  margin-bottom: 0;
+}
