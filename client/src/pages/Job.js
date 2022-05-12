@@ -52,7 +52,7 @@ const User = () => {
     setEndPoint(initialEndpoint + params);
   };
 
-  const showJobs = () => {
+  const ShowJobs = () => {
     return (
       <div className="job-list">
         {jobList.map((props, index) => (
@@ -100,7 +100,6 @@ const User = () => {
       }
 
       if (endPoint.includes('page=')) {
-        console.log('set job list');
         setJobList([
           ...jobList,
           ...result
@@ -170,7 +169,7 @@ const User = () => {
       {isLoading
         ? (<p className="text-center">Loading Data..</p>)
         : jobList.length
-          ? showJobs()
+          ? <ShowJobs />
           : (<p className="text-center text-danger">No Jobs Found</p>)
       }
     </Layout1>
