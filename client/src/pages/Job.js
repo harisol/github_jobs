@@ -97,6 +97,8 @@ const User = () => {
 
       if (knownDataPerPage > result.length) {
         setShowMoreButton(false);
+      } else {
+        setShowMoreButton(true);
       }
 
       if (endPoint.includes('page=')) {
