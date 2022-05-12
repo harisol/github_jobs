@@ -1,18 +1,20 @@
 import { useLayoutEffect, useState } from 'react';
 import { AuthContext } from './utils/contexts';
 import { eraseCookie } from './utils/helpers';
-import { cookieKeyAuth } from './utils/config';
-import { useFetchGet } from './utils/custom-hooks/fetch.hook';
+import { cookieKeyAuth, jobApiBaseUrl } from './utils/config';
+import { useFetch } from './utils/custom-hooks/fetch.hook';
 import Loader from './components/Loader';
 import Routes from './components/Routes';
+
+const checkTokenUrl = `${jobApiBaseUrl}/check-token`;
 
 export default function App() {
   const [isTokenChecked, setIsTokenChecked] = useState(false);
   const [authed, setAuthed] = useState(false);
-  const { data, error, startFetch } = useFetchGet('/check-token');
+  const { data, error, startFetch } = useFetch();
   
   useLayoutEffect(() => {
-    startFetch();
+    startFetch(checkTokenUrl);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -25,8 +27,7 @@ export default function App() {
   }, [error]);
   
   useLayoutEffect(() => {
-    if (Object.keys(data).length) {
-      console.log('data', data);
+    if (data?.message === 'token valid') {
       setAuthed(true);
       setIsTokenChecked(true);
     }
