@@ -16,10 +16,8 @@ if (!process.env.NODE_ENV) {
 }
 
 const server = require('./server');
-
-const HOST = process.env.SERVER_HOST || 'localhost';
 const PORT = process.env.SERVER_PORT || 3030;
 
-server.listen(PORT, HOST, () => {
-    console.log(`Server is live at ${HOST}:${PORT} using environment "${server.get('env')}"`)
+server.listen(PORT, () => {
+    console.log(`Server is live at port ${PORT} using environment "${server.get('env')}"`)
 });

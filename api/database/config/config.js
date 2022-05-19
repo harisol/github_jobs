@@ -2,8 +2,9 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    uri: process.env.DEV_DATABASE_URI, // A full database URI
+    uri: process.env.DEV_DATABASE_FULL_URI, // A full database URI
     host: process.env.DEV_DATABASE_HOST,
+    port: process.env.DEV_DATABASE_PORT,
     username: process.env.DEV_DATABASE_USERNAME,
     password: process.env.DEV_DATABASE_PASSWORD,
     database: process.env.DEV_DATABASE_NAME,
@@ -11,7 +12,7 @@ module.exports = {
     dialect: 'postgres',
   },
   production: {
-    uri: process.env.PROD_DATABASE_URI, // A full database URI
+    uri: process.env.PROD_DATABASE_FULL_URI, // A full database URI
     host: process.env.PROD_DATABASE_HOST,
     username: process.env.PROD_DATABASE_USERNAME,
     password: process.env.PROD_DATABASE_PASSWORD,
